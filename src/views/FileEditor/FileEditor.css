@@ -1,0 +1,42 @@
+.file-editor {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .editor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    color: transparent;
+    caret-color: black;
+    z-index: 1;
+    resize: none;
+    overflow: auto;
+    border: 1px solid #ccc;
+    font-family: monospace;
+    line-height: 1.5;
+  }
+  
+  .highlighted-editor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: monospace;
+    line-height: 1.5;
+    pointer-events: none;
+    overflow: auto;
+  }
+  

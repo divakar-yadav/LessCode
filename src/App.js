@@ -84,28 +84,28 @@ const App = () => {
                         </li> */}
                         <li>
                         <div className='sidenav_item' onClick={()=>setTab('homepage')}>
-                        <img className='item_icon' src={contribution}/>
-                                <div className='redirect'>Home</div>
+                        {/* <img className='item_icon' src={contribution}/> */}
+                                <div className='redirect'>Open Folder</div>
                             </div>
                         </li>
                         <li>
                             <div className='sidenav_item' onClick={()=>setTab('import-project')}>
-                                <img className='item_icon' src={setting}/>
-                                <div className='redirect'>Import Project</div>
+                                {/* <img className='item_icon' src={setting}/> */}
+                                <div className='redirect'>Clone Repository</div>
                             </div>
                         </li>
-                        <li>
+                        {/* <li>
                             <div className='sidenav_item' onClick={()=>setTab('projects')}>
                                 <img className='item_icon' src={chat}/>
                                 <div className='redirect'>Chat</div>
                             </div>
-                        </li>
-                        <li>
+                        </li> */}
+                        {/* <li>
                             <div className='sidenav_item' onClick={()=>setTab('synthetic-data-generator')}>
                                 <img className='item_icon' src={live}/>
                                 <div className='redirect'>Synthetic Data Generator</div>
                             </div>
-                        </li>
+                        </li> */}
                         {/* <li>
                             <div className='sidenav_item' onClick={()=>setTab('projects')}>
                                 <img className='item_icon' src={contribution}/>
