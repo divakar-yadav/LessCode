@@ -1,0 +1,32 @@
+.loader8 {
+    width: 250px;
+    height: 3px;
+    /* border: 1px solid #bbb; */
+    border-radius: 0px;
+    position: relative;
+    overflow: hidden;
+    background: #E6E6E6;
+    margin: 5px;
+}
+  
+  .loader8:after {
+    content: " ";
+    display: block;
+    width: 120px;
+    top: -50%;
+    height: 250%;
+    position: absolute;
+    animation: greenglow 50s linear infinite;
+    z-index: 2;
+    background: #369;
+}
+  
+  @keyframes greenglow {
+    from {
+      left: -120px;
+    }
+  
+    to {
+      left: 100%;
+    }
+  }

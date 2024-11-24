@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Python Script</title>
+</head>
+<body>
+    <h1>Python Script Runner</h1>
+    <button id="runPython">Train Model</button>
+    <p id="output">Output will appear here...</p>
+    <p id="output1">Output will appear here...</p>
+    <div id="app"></div>
+    <script>
+        const { exec } = require('child_process');
+        const path = require('path');
+        const fs = require('fs');
+        
+        document.getElementById('runPython').addEventListener('click', () => {
+            // Path for the Python executable in the virtual environment
+            let pythonExecutable = path.join(__dirname,'resources', 'env', 'bin', 'python');  // Adjust 'venv' and 'bin' based on your actual virtual environment path
+            
+            // Path for the Python script
+            let appScriptPath = path.join(__dirname, 'app.py');
+            // Check if running from a package and adjust
+            if (process.env.NODE_ENV !== 'development') {
+                if (!fs.existsSync(pythonExecutable)) {
+                    pythonExecutable = path.join(process.resourcesPath, 'env', 'bin', 'python');  // Update the path for packaged environment
+                }
+                appScriptPath = path.join(process.resourcesPath, 'app.py');
+            }
+
+            const command = `"${pythonExecutable}" "${appScriptPath}"`;  // Ensure both paths are quoted
+        
+            exec(command, {shell: true}, (error, stdout, stderr) => {
+                if (error) {
+                    document.getElementById('output').innerText = `Error: ${error.message}`;
+                    document.getElementById('output1').innerText = process.resourcesPath;
+                    return;
+                }
+                if (stderr) {
+                    document.getElementById('output').innerText = `stderr: ${stderr}`;
+                    return;
+                }
+                try {
+                    const output = stdout.toString();
+                    console.log('Received output from Python:', output);
+                    document.getElementById('output').innerText = `Output: ${output}`;
+                } catch (e) {
+                    console.error('Error parsing output:', e);
+                    document.getElementById('output').innerText = 'Error parsing output from Python script.';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

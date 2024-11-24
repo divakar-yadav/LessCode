@@ -1,0 +1,17 @@
+body {
+    overflow-y: hidden;
+}
+
+.homepage {
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+    flex-direction: column;
+    width: 100%;
+    font-family: sans-serif;
+  }
+  
+  .homepage_body {
+    display: flex;
+    width: 100%;
+  }
